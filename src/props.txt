@@ -1,0 +1,12 @@
+ 
+
+ props
+
+ to send data from  parent component to childcomponent.
+ the data is immutable/readonly  
+
+
+ send 2 
+ receive 3
+
+ destructure

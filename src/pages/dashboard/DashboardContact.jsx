@@ -11,6 +11,17 @@ import { Plus, Minus, RotateCcw } from "lucide-react";
     
   }
 
+  function decrease(){
+    if(counter>0){
+    setCounter(counter-1)
+  }else{
+    setCounter(0)
+  }
+  }
+  function reset(){
+    setCounter(0)
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-xs text-center">
@@ -26,6 +37,7 @@ import { Plus, Minus, RotateCcw } from "lucide-react";
             <Button
               variant="outline"
               size="icon"
+              onClick={decrease}
             >
               <Minus className="h-4 w-4" />
             </Button>
@@ -42,6 +54,7 @@ import { Plus, Minus, RotateCcw } from "lucide-react";
           <Button
             variant="ghost"
             className="w-full"
+            onClick={reset}
           >
             <RotateCcw className="mr-2 h-4 w-4" />
             Reset

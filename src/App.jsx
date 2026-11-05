@@ -5,6 +5,7 @@ import Contact from './pages/Contact'
 import DashboardHome from './pages/dashboard/DashboardHome'
 import DashboardLayout from './layout/DashboardLayout'
 import DashboardContact from './pages/dashboard/DashboardContact'
+import Signup from './pages/Signup'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/signup' element={<Signup />} />
 
         <Route path='/dashboard' element={<DashboardLayout />}>
           <Route index element={<DashboardHome />} />

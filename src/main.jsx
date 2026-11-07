@@ -5,12 +5,26 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Analytics } from "@vercel/analytics/react"
+import { Bounce, ToastContainer } from 'react-toastify'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <TooltipProvider>
       <Analytics/>
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+transition={Bounce}
+/>
     <App />
     </TooltipProvider>
     </BrowserRouter>

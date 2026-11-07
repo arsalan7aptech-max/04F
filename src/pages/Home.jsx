@@ -19,7 +19,19 @@ const Home = () => {
     <Button>Contact</Button>
     </Link>
     <Link to={'/dashboard'}>
-    <Button>Dashboard</Button>
+    <Button>Dashboard
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </Button>
     </Link>
    
     <SaleCards/>

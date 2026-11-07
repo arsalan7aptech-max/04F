@@ -14,15 +14,36 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 export function SignupForm({
   ...props
 }) {
-  const [fullname,setFullname]=useState("")
-  function nameinput(e){
-   setFullname(e.target.value)
-   console.log(e.target.value)
-  }
+const [formData,setFormData]=useState({
+  fullname:"",
+  email:"",
+  password:"",
+  confirmPassword:""
+})
+function handleChange(e){
+  console.log({[e.target.name]:e.target.value})
+  setFormData({...formData,
+    [e.target.name]:e.target.value
+})
+}
+
+function handleSubmit(e){
+  e.preventDefault()
+  toast.success("form submitted")
+  setFormData({
+  fullname:"",
+  email:"",
+  password:"",
+  confirmPassword:""
+})
+console.log(formData);
+
+}
   return (
     <Card {...props}>
       <CardHeader>
@@ -32,11 +53,11 @@ export function SignupForm({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
+        <form onSubmit={handleSubmit}>
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="name">Full Name</FieldLabel>
-              <Input id="name" type="text" placeholder="John Doe" required name="fullname" value={fullname} onChange={nameinput} />
+              <Input id="name" type="text" placeholder="John Doe" required name="fullname" value={formData.fullname} onChange={handleChange} />
             </Field>
             <Field>
               <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -45,6 +66,9 @@ export function SignupForm({
                 type="email"
                 placeholder="m@example.com"
                 required
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
               />
               <FieldDescription>
                 We&apos;ll use this to contact you. We will not share your email
@@ -53,7 +77,7 @@ export function SignupForm({
             </Field>
             <Field>
               <FieldLabel htmlFor="password">Password</FieldLabel>
-              <Input id="password" type="password" required />
+              <Input id="password" type="password" required name="password" value={formData.password} onChange={handleChange}/>
               <FieldDescription>
                 Must be at least 8 characters long.
               </FieldDescription>
@@ -62,7 +86,7 @@ export function SignupForm({
               <FieldLabel htmlFor="confirm-password">
                 Confirm Password
               </FieldLabel>
-              <Input id="confirm-password" type="password" required />
+              <Input id="confirm-password" type="password" required  name="confirmPassword" value={formData.confirmPassword} onChange={handleChange}  />
               <FieldDescription>Please confirm your password.</FieldDescription>
             </Field>
             <FieldGroup>
